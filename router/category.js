@@ -5,11 +5,11 @@ import read from "../controllers/categories/read.js";
 import update from "../controllers/categories/read.js";
 import destroy from "../controllers/categories/read.js";
 
-let authorsRouter = Router();
+let categoriesRouter = Router();
 
-authorsRouter.post('/',create);
-authorsRouter.get('/',read);
-authorsRouter.put('/:id', update);
-authorsRouter.delete('/:id', destroy);
+categoriesRouter.post('/',create);
+categoriesRouter.get('/',read);
+categoriesRouter.put('/:id', update);
+categoriesRouter.delete('/:id', destroy);
 
-export default authorsRouter;
+export default categoriesRouter;
