@@ -18,7 +18,8 @@ export default async (req, res) => {
     } catch (error) {
         return res.status(500).json({
             response: null,
-            message: "Failed to find Category"
+
+            message: "Failed to find Category "
         })
     }
 }

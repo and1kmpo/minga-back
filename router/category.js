@@ -13,3 +13,4 @@ categoriesRouter.put('/:id', update);
 categoriesRouter.delete('/:id', destroy);
 
 export default categoriesRouter;
+
