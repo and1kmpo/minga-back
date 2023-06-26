@@ -15,6 +15,6 @@ export default async function accountExistsSignIn(req,res,next) {
     console.log('not exists!')
     return res.status(400).json({
         response: null,
-        message: 'User does not exist!'
+        messages: ['User does not exist!']
     })
 }

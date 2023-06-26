@@ -8,6 +8,6 @@ export default (req, res, next) => {
     }
     return res.status(400).json({
         response: null,
-        message: 'Invalid credentials!'
+        messages: ['Invalid credentials!']
     })
 }

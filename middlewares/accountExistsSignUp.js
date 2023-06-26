@@ -6,7 +6,7 @@ export default async function accountExistsSignUp(req,res,next) {
         console.log('exists!')
         return res.status(400).json({
             response: null,
-            message: 'User already exist!'
+            messages: ['User already exist!']
         })
     }
     return next()
