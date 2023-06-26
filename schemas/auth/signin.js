@@ -11,7 +11,7 @@ const schema = joi.object({
             'string.email': 'Invalid format email!'
         }),
     password: joi.string().required()
-        .min(10)
+        .min(8)
         .alphanum()
         .messages({
             'any.required': 'Password is required!',
