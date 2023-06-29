@@ -10,7 +10,7 @@ let schema = new Schema(
     date: { type: Date, required: false },
     photo: { type: String, required: true },
     user_id: { type: Types.ObjectId, ref: "users", required: true },
-    active: { type: Boolean, required: true },
+    active: { type: Boolean, default: true },
   },
   {
     timestamps: true,
