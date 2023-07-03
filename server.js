@@ -4,6 +4,7 @@ import "./config/database.js";
 import indexRouter from "./router/index.js";
 import cors from "cors";
 import morgan from "morgan";
+import not_found_handler from './middlewares/not_found_handler.js'
 import error_handler from "./middlewares/error_handler.js";
 
 const server = express(); //Crear servidor
@@ -20,7 +21,8 @@ server.use(morgan('dev'))                               ////para registrar petic
 
 //Router + Server
 server.use('/api',indexRouter);
-server.use(error_handler)
+server.use(not_found_handler);
+server.use(error_handler);
 server.listen(PORT, ready); //Iniciar server
 
 console.log(process.env.NODE_ENV);
