@@ -53,4 +53,10 @@ let authors = [
   },
 ];
 
-Author.insertMany(authors);
+Author.insertMany(authors)
+.then(() => {
+  console.log("Insert data successfully!");
+})
+.catch((error) => {
+  console.log("Insert data ERROR:", error);
+});
