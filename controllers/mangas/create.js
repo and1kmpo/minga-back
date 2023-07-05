@@ -3,11 +3,12 @@ import Manga from "../../models/Manga.js";
 
 export default async(req,res)=> {
     try {
-        let data = req.body             //el cliente envia un objeto en la propiedad body del objeto req (requerimientos)
-        let one = Manga.create(data)   //el objeto data deberia contener TODOS los datos necesarios para crear algo
-        if (one) {
+        let data = req.body  
+        console.log(data, req.user);           //el cliente envia un objeto en la propiedad body del objeto req (requerimientos)
+       // let one = Manga.create(data)   //el objeto data deberia contener TODOS los datos necesarios para crear algo
+        if (data) {
             return res.status(201).json({
-                response: one,
+                response: data,
                 message: 'Manga created'
             })
         } else {

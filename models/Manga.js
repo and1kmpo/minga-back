@@ -14,7 +14,7 @@ let schema = new Schema(
       required: false,
     },
     title: { type: String, required: true },
-    cover_photo: { type: String, required: true },
+    cover_photo: { type: String, required: false },
     description: { type: String, required: true },
     category_id: { type: Types.ObjectId, ref: "categories", required: true },
   },

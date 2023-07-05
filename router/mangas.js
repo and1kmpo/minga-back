@@ -1,5 +1,4 @@
 import { Router } from "express";
-import Manga from '../models/Manga.js';
 import create from "../controllers/mangas/create.js";
 import read from "../controllers/mangas/read.js";
 import update from "../controllers/mangas/read.js";
