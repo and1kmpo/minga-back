@@ -12,7 +12,7 @@ export default async (req, res) => {
     }else{
         return res.status(404).json({
             response: null,
-            message: 'No Chapter found!'
+            message: 'Chapter not found!'
         })
     }
     } catch (error) {
