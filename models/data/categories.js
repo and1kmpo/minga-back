@@ -44,4 +44,10 @@ let categories = [
   },
 ];
 
-Category.insertMany(categories);
+Category.insertMany(categories)
+.then(() => {
+  console.log("Insert data successfully!");
+})
+.catch((error) => {
+  console.log("Insert data ERROR:", error);
+});

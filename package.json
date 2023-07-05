@@ -10,6 +10,7 @@
     "users": "node ./models/data/users.js",
     "authors": "node ./models/data/authors.js",
     "categories": "node ./models/data/categories.js",
+    "companies": "node ./models/data/companies.js",
     "data": "node ./models/data/data.js"
   },
   "author": "",

@@ -65,4 +65,10 @@ let users = [
   },
 ];
 
-User.insertMany(users);
+User.insertMany(users)
+.then(() => {
+  console.log("Insert data successfully!");
+})
+.catch((error) => {
+  console.log("Insert data ERROR:", error);
+});

@@ -1,24 +1,24 @@
-import Author from "../../models/Author.js";
+import Company from "../../models/Company.js";
 
 
 export default async (req, res) => {
     try {
-        let all = await Author.find()
+        let all = await Company.find()
         if (all) {
             return res.status(200).json({ 
                 response: all,
-                message: 'Authors found successfully!'
+                message: 'Company found successfully!'
         })
     }else{
         return res.status(404).json({
             response: null,
-            message: 'Authors not found!'
+            message: 'Company not found!'
         })
     }
     } catch (error) {
         return res.status(500).json({
             response: null,
-            message: "Error founding Author"
+            message: "Failed to find Company "
         })
     }
 }
