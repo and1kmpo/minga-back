@@ -9,13 +9,11 @@ export default passport.use(
             secretOrKey: process.env.SECRET
         },				
         async (jwt_payload,done) => {
-            try {	
-                console.log(jwt_payload)		
-                
-                let user = await User.findOne({email:jwt_payload.email})
-                
-                if (user) {	
-                    delete user.password	
+            try {				
+                let user = await User.findOne({_id:jwt_payload._id})
+                delete user._id
+                delete user.password
+                if (user) {		
                     return done(null, user)
                 } else {
                     return done(null, false)
