@@ -1,28 +1,12 @@
-import User from "../models/User.js"
-import passport from "passport"
-import { Strategy,ExtractJwt } from "passport-jwt"
+import Chapter from "../models/Chapter.js"
 
-export default passport.use(
-    new Strategy(
-        {
-            jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-            secretOrKey: process.env.SECRET
-        },				
-        async (jwt_payload,done) => {
-            try {	
-                console.log(jwt_payload)		
-                
-                let user = await User.findOne({email:jwt_payload.email})
-                
-                if (user) {	
-                    delete user.password	
-                    return done(null, user)
-                } else {
-                    return done(null, false)
-                }
-            } catch (error) {
-                return done(error,false)
-            }
-        }
-    )
-)
+export default async(req,res,next)=> {
+    let order = 1
+    let one = await Chapter.findOne({ manga_id:req.body.manga_id }).sort({ order:'-1' })
+    if (one) {
+        req.body.order = one.order+1
+    } else {
+        req.body.order = order
+    }
+    return next()
+}
