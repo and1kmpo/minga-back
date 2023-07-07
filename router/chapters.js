@@ -10,7 +10,8 @@ import next_order from "../middlewares/next_order.js"
 import add_cover_photo from "../middlewares/add_cover_photo.js";
 import has_permition from "../middlewares/has_permition.js";
 import isActive from "../middlewares/isActive.js";
-import isPropertyOf from  "../middlewares/isPropertyOf.js";
+import is_property_of from  "../middlewares/is_property_of.js";
+
 
 let chaptersRouter = Router();
 
@@ -21,7 +22,7 @@ chaptersRouter.post('/',
     add_cover_photo, 
     has_permition,
     isActive,
-    isPropertyOf,
+    is_property_of,
 create);
 chaptersRouter.get('/',read);
 // chaptersRouter.put('/:id', update);
