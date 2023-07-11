@@ -11,12 +11,17 @@ import add_cover_photo from "../middlewares/add_cover_photo.js";
 import has_permition from "../middlewares/has_permition.js";
 import isActive from "../middlewares/isActive.js";
 import is_property_of from  "../middlewares/is_property_of.js";
+import validator from "../middlewares/validator.js";
+import create_schema from "../schemas/chapters/create.js";
+
+
 
 
 let chaptersRouter = Router();
 
 chaptersRouter.post('/',
     passport.authenticate("jwt", {session:false}), 
+    validator(create_schema),
     exist_order, 
     next_order, 
     add_cover_photo, 
@@ -29,3 +34,6 @@ chaptersRouter.get('/',read);
 // chaptersRouter.delete('/:id', destroy);
 
 export default chaptersRouter;
+
+
+
