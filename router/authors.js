@@ -13,7 +13,8 @@ let authorsRouter = Router();
 
 //authorsRouter.put('/:id', update);
 //authorsRouter.delete('/:id', destroy);
-authorsRouter.post('/',passport.authenticate('jwt',{ session:false }),validator(schema_create),create)
-authorsRouter.get('/',read)
+authorsRouter.post('/',passport.authenticate('jwt',{ session:false }),validator(schema_create),create);
+authorsRouter.get('/',read);
+
 
 export default authorsRouter;
