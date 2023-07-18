@@ -7,6 +7,7 @@ export default async (req, res, next) => {
     if (req.query.city) {
       consultas.city = new RegExp(req.query.city, "i");
     }
+    
     if (req.query.name) {
       consultas.name = new RegExp(req.query.name, "i");
     }
@@ -14,8 +15,8 @@ export default async (req, res, next) => {
     if (req.query.sort) {
       ordenamiento.name = req.query.sort;
     }
-    let one = await Author.find(consultas, "name= id city")
-      .populate("user_id", "email= id photo role")
+    let one = await Author.find(consultas, "name _id city")
+      .populate("user_id", "email -_id photo role")
       .sort(ordenamiento);
 
     if (one.length > 0) {

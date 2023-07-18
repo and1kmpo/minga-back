@@ -1,7 +1,8 @@
 export default (error,req,res,next) => {
-    console.log(error)
-    return res.status(500).json({
+   /* return res.status(500).json({
         response: null,
-        messages: error.message
-    })
+        messages: error.message,
+        custom:'aca es'
+    })*/
+    next();
 }
