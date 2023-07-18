@@ -3,8 +3,19 @@ import Manga from "../../models/Manga.js";
 
 export default async (req, res, next) => {
     try {
+        let ordenamiento = {title:1};//1 -> Ordenar ascendentemente y -1 -> Ordena descendentemente
         let consultas = {};
-        let pagination = { page: 1, limit: 4 };
+        if (req.query.title){
+            consultas.title = RegExp(req.query.title,"i");
+        }
+        if (req.query.description){
+            consultas.description = RegExp(req.query.description,"i");
+        }
+        if (req.query.sort){
+            ordenamiento.title = req.query.sort;
+        }
+        let all = await Manga.find(consultas, "title -_id description").sort(ordenamiento);
+       let pagination = { page: 1, limit: 4 };
         if (req.query.page) {
             pagination.page = req.query.page
         };
@@ -31,12 +42,12 @@ export default async (req, res, next) => {
                 prev_page,
                 next_page
             })
-        } else {
-            return res.status(404).json({
-                response: null,
-                message: ' Mangas not found!'
-            })
-        }
+    }else{
+        return res.status(404).json({
+            response: null,
+            message: 'Manga not found!'
+        })
+    }
     } catch (error) {
        
     next(error)
