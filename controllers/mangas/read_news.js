@@ -2,12 +2,12 @@ import Manga from "../../models/Manga.js";
 
 export default async (req, res, next) => {
   try {
-    let author = req.author_id;
+    let author = req.author;
     let mangasAuthor = await Manga.find({
       author_id: author,
     }).populate("author_id");
     console.log("mangas:", mangasAuthor.length);
-
+console.log(author)
     if (mangasAuthor.length < 4) {
       let logo =
         "https://www.figma.com/file/odCgVyO7Jniaoft8aFcFBj/Minga---Design?type=design&node-id=2632-3722&mode=design&t=anK4ksvDR2ljr48m-4";
