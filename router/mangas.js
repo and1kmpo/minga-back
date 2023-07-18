@@ -7,7 +7,6 @@ import passport from "../middlewares/passport.js";
 import update from "../controllers/mangas/update.js";
 import destroy from "../controllers/auth/destroy.js";
 import schema from "../schemas/mangas/create.js";
-import has_permition from "../middlewares/has_permition.js";
 import validator from "../middlewares/validator.js";
 import isActive from "../middlewares/isActive.js";
 
