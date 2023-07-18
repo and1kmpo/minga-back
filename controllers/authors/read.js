@@ -7,7 +7,7 @@ export default async (req, res, next) => {
     if (req.query.city) {
       consultas.city = new RegExp(req.query.city, "i");
     }
-
+    
     if (req.query.name) {
       consultas.name = new RegExp(req.query.name, "i");
     }
