@@ -1,6 +1,6 @@
 import { Router } from "express";
 import create from "../controllers/mangas/create.js";
-
+import read from "../controllers/mangas/read.js";
 import update from "../controllers/mangas/read.js";
 import destroy from "../controllers/mangas/read.js";
 import passport from "passport"
