@@ -15,16 +15,24 @@ import validator from "../middlewares/validator.js";
 import create_schema from "../schemas/chapters/create.js";
 import read_one from "../controllers/chapters/read_one.js";
 
-
-
-
 let chaptersRouter = Router();
 
 chaptersRouter.post('/',
-    passport.authenticate("jwt", { session: false }), validator(create_schema),
-    exist_order, next_order, add_cover_photo, has_permition, isActive, is_property_of, create);
-chaptersRouter.get('/', read);
-chaptersRouter.get('/:chapter_id', passport.authenticate('jwt', { session: false }), read_one)
+    passport.authenticate("jwt", { session: false }),
+    validator(create_schema),
+    exist_order,
+    next_order,
+    add_cover_photo,
+    has_permition,
+    isActive,
+    is_property_of,
+    create);
+chaptersRouter.get('/',
+    passport.authenticate("jwt", {session:false}),
+    read);
+chaptersRouter.get('/:chapter_id',
+    passport.authenticate('jwt', { session: false }),
+    read_one)
 
 // chaptersRouter.put('/:id', update);
 // chaptersRouter.delete('/:id', destroy);
