@@ -33,7 +33,7 @@ export default async (req, res, next) => {
             .skip(skip)
             .limit(limit)
             .sort(ordenamiento)
-            //.populate("manga_id", "title") // (propied_a_transf, selectores)
+            .populate("manga_id", "-_id title cover_photo") // (propied_a_transf, selectores)
 
         if (all.length > 0) {
             let total = await Chapter.countDocuments(consultas) //1ro cuento la cant de doc encontrado
