@@ -8,7 +8,7 @@ export default async (req, res, next) => {
             .findById(id, "-_id -createdAt -updatedAt")
             .populate("author_id", "-_id name last_name photo")
             .populate("company_id", "-_id name website photo")
-            .populate("category_id", "-_id name")
+            .populate("category_id", "-_id name color hover")
 
         if (one) {
             return res.status(200).json({
