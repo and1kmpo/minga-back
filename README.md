@@ -25,29 +25,24 @@ ________________________________________________________________
 | auth/token    | POST    | for generate a token of the user    |
 | auth/:id      | PUT     | for update an user                  |
 | auth/delete   | DELETE  | for delete an user                  |
-________________________________________________________________
 | authors/      | GET     | for authors list                    |
 | authors/me    | GET     | for reading data of an logged author|
 | authors/      | POST    | for create a new author             |
 | authors/:id   | GET     | for find an author for id           |
-_________________________________________________________________
 | categories/   | GET     | for categories list                 |
 | chapters/     | GET     | for chapters list                   |
 | chapters/     | POST    | for create a new chapter            |
 | chapters/:id  | GET     | for find a chapter for id           |
-________________________________________________________________
 | companies/    | GET     | for reading companies               |
 | companies/    | POST    | for create a new company            |
 | companies/:id | PUT     | for update a  create a new company  |
 | companies/:id | DELETE  | for  delete an company              |
-________________________________________________________________
 | mangas/       | GET     | for mangas list                     |
 | mangas/news   | GET     | for faind new mangas                |
 | mangas/       | POST    | for create a new manga              |
 | mangas/:id    | GET     | for find a manga for id             |
 | mangas/:id    | PUT     | for update mangas                   |
 | mangas/:id    | DELETE  | for delete mangas                   |
-_________________________________________________________________
 
 ### How to run the project locally??
 
