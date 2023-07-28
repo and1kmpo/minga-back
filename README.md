@@ -14,9 +14,10 @@ this project works with **MongoDB** with the help of **Mongoose** library, **Rea
 
 ## What are its endpoints?
 ________________________________________________________________
-|               | REQUEST |                                     | 
-| ENDPOINT      | METHOD  |         DESCRIPTION                 |
-|_______________|_________|_____________________________________|
+
+
+| endpoint | request method | Description |
+|  :----:  |  :----:  |    :---     |
 | auth/         | GET     | for users list                      |
 | auth/register | POST    | for create new user                 |
 | auth/signIn   | POST    | for autenthicate an user            |
@@ -24,29 +25,29 @@ ________________________________________________________________
 | auth/token    | POST    | for generate a token of the user    |
 | auth/:id      | PUT     | for update an user                  |
 | auth/delete   | DELETE  | for delete an user                  |
-|_______________|_________|_____________________________________|
+________________________________________________________________
 | authors/      | GET     | for authors list                    |
 | authors/me    | GET     | for reading data of an logged author|
 | authors/      | POST    | for create a new author             |
 | authors/:id   | GET     | for find an author for id           |
-|_______________|_________|_____________________________________|
+_________________________________________________________________
 | categories/   | GET     | for categories list                 |
 | chapters/     | GET     | for chapters list                   |
 | chapters/     | POST    | for create a new chapter            |
 | chapters/:id  | GET     | for find a chapter for id           |
-|_______________|_________|_____________________________________|
+________________________________________________________________
 | companies/    | GET     | for reading companies               |
 | companies/    | POST    | for create a new company            |
 | companies/:id | PUT     | for update a  create a new company  |
 | companies/:id | DELETE  | for  delete an company              |
-|_______________|_________|_____________________________________|
+________________________________________________________________
 | mangas/       | GET     | for mangas list                     |
 | mangas/news   | GET     | for faind new mangas                |
 | mangas/       | POST    | for create a new manga              |
 | mangas/:id    | GET     | for find a manga for id             |
 | mangas/:id    | PUT     | for update mangas                   |
 | mangas/:id    | DELETE  | for delete mangas                   |
-|_______________|_________|_____________________________________|
+_________________________________________________________________
 
 ### How to run the project locally??
 
@@ -82,7 +83,7 @@ ___________________________________IMPORTANT___________________________________
          ```Code . ```
 
 
-Note that, to get the project working in your local environment you must:
+------Note that, to get the project working in your local environment you must:
 
 4. Open the terminal and run the command
           ``` npm install ```
@@ -94,9 +95,9 @@ Note that, to get the project working in your local environment you must:
 
 6 . Finally don´t forget:
 
-manually create a file that you should name .ENV within which the following environment variables are set:
+------manually create a file that you should name .ENV within which the following environment variables are set:
 
                MONGO_URI = 'mongodb+srv://minga:minga2023@minga-campo.klolo7m.mongodb.net/protalento'
                SECRET= 'keyS3cr3t4'
 
-With these simple steps, you are ready to start!
+------With these simple steps, you are ready to start!
