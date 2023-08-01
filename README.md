@@ -86,7 +86,7 @@ ___________________________________IMPORTANT___________________________________
 -------make sure it is located inside the project folder.
 
 5. Then, run the command:
-         ``` npm run start ```
+         ``` npm run dev ```
 
 6 . Finally don´t forget:
 
