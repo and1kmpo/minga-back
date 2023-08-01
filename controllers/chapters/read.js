@@ -29,11 +29,11 @@ export default async (req, res, next) => {
            pagination.limit : 0
 
         let all = await Chapter
-            .find(consultas, "-_id manga_id title cover_photo pages") // (obj_con_filtros, selectores)
+            .find(consultas, "manga_id title cover_photo pages") // (obj_con_filtros, selectores)
             .skip(skip)
             .limit(limit)
             .sort(ordenamiento)
-            .populate("manga_id", "-_id title cover_photo") // (propied_a_transf, selectores)
+            .populate("manga_id", "title cover_photo") // (propied_a_transf, selectores)
 
         if (all.length > 0) {
             let total = await Chapter.countDocuments(consultas) //1ro cuento la cant de doc encontrado
