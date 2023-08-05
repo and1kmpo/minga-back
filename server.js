@@ -8,7 +8,7 @@ import error_handler from "./middlewares/error_handler.js";
 import not_found_handler from "./middlewares/not_found_handler.js";
 
 const server = express(); //Crear servidor
-const PORT = process.env.PORT || 8000; // Establecer PORT
+const PORT = process.env.PORT || 8080; // Establecer PORT
 const ready = () => {
   console.log("Ready on " + PORT);
 };
