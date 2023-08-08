@@ -7,10 +7,8 @@ import passport from "../middlewares/passport.js";
 import update from "../controllers/mangas/update.js";
 import validator from "../middlewares/validator.js";
 import isActive from "../middlewares/isActive.js";
-import destroy from "../controllers/mangas/destroy.js";
 // schemas
 import schema from "../schemas/mangas/create.js";
-
 
 // M09
 import read_news from "../controllers/mangas/read_news.js";
