@@ -8,12 +8,6 @@ import read from "../controllers/authors/read.js";
 //import destroy from "../controllers/authors/destroy.js";
 import validator from "../middlewares/validator.js";
 import schema_create from "../schemas/authors/create.js";
-import passport from "passport";
-=======
-import read_one from "../controllers/authors/read_one.js";
-import read_me from "../controllers/authors/read_me.js";
-// middlewares
-import has_permition from "../middlewares/has_permition.js";
 
 // M09-Endpoint
 import read_one from "../controllers/authors/read_one.js";
