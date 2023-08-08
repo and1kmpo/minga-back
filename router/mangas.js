@@ -5,17 +5,10 @@ import read from "../controllers/mangas/read.js";
 import read_one from "../controllers/mangas/read_one.js";
 import passport from "../middlewares/passport.js";
 import update from "../controllers/mangas/update.js";
-import destroy from "../controllers/auth/destroy.js";
-import schema from "../schemas/mangas/create.js";
 import validator from "../middlewares/validator.js";
 import isActive from "../middlewares/isActive.js";
-import read_news from "../controllers/mangas/read_news.js";
-import destroy from "../controllers/mangas/destroy.js";
-// middlewares
-import has_permition from "../middlewares/has_permition.js";
 // schemas
 import schema from "../schemas/mangas/create.js";
-
 
 // M09
 import read_news from "../controllers/mangas/read_news.js";
