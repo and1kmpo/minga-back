@@ -11,6 +11,7 @@ export default async (req, res, next) => {
       country,
       photo,
       user: { _id: id, email, role, online },
+
     };
     return res.status(200).json({
       success: true,

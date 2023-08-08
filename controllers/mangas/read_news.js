@@ -3,7 +3,6 @@ import Manga from "../../models/Manga.js";
 export default async (req, res, next) => {
   try {
     let author = req.author._id;
-    console.log("AUTHOR DE MANGAS:", author);
     const mangasAuthor = await Manga.find({
       author_id: author,
     });
@@ -18,6 +17,7 @@ export default async (req, res, next) => {
         response: { all },
         message: "Mangas is Found! ",
       });
+      
     } else if (mangasAuthor.length >= 8) {
       let news = await Manga.find({
         author_id: author,
@@ -27,8 +27,7 @@ export default async (req, res, next) => {
 
       let old = await Manga.find({
         author_id: author,
-      })
-        .sort({ createdAt: 1 })
+      }).sort({ createdAt: 1 })
         .limit(4);
 
       return res.status(200).json({

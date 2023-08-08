@@ -14,13 +14,13 @@ const ready = () => {
 };
 
 //Middlewares
-server.use(express.json());//permite entradas y también trabajar con formato json
-server.use(express.urlencoded({ extended: true }));//permite capturar consultas complejas
-server.use(cors())                                      //para permitir orígenes cruzados (front/back)
-server.use(morgan('dev'))                               ////para registrar peticiones HTTP
+server.use(express.json()); //permite entradas y también trabajar con formato json
+server.use(express.urlencoded({ extended: true })); //permite capturar consultas complejas
+server.use(cors()); //para permitir orígenes cruzados (front/back)
+server.use(morgan("dev")); ////para registrar peticiones HTTP
 
 //Router + Server
-server.use('/api',indexRouter);
+server.use("/api", indexRouter);
 server.use(not_found_handler);
 server.use(error_handler);
 server.listen(PORT, ready); //Iniciar server

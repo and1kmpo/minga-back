@@ -26,14 +26,24 @@ import accountNotExist from "../middlewares/accountNotExist.js"
 let authRouter = Router()
 
 authRouter.post('/register',
- validator(register_schema), 
- accountExistsSignUp,
- accountNotExist,
+  validator(register_schema),
+  accountExistsSignUp,
+  accountNotExist,
   createHash,
   register)
-authRouter.post('/signin', validator(signin_schema), accountExistsSignIn, isValidPassword, generateToken, signin)
-authRouter.post('/signout', passport.authenticate('jwt',{ session:false }), signout)
-authRouter.post('/token', passport.authenticate('jwt',{ session:false }), generateToken, token)
+authRouter.post('/signin',
+  validator(signin_schema),
+  accountExistsSignIn,
+  isValidPassword,
+  generateToken,
+  signin)
+authRouter.post('/signout',
+  passport.authenticate('jwt',{ session:false }),
+  signout)
+authRouter.post('/token',
+  passport.authenticate('jwt',{ session:false }),
+  generateToken,
+  token)
 authRouter.get('/', read)
 authRouter.put('/:id', update)
 authRouter.delete('/:id', destroy)
