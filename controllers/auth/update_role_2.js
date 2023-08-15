@@ -1,20 +1,20 @@
 import User from "../../models/User.js";
-import Author from "../../models/Author.js";
 import Company from "../../models/Company.js";
+import Author from "../../models/Author.js";
 
 export default async (req, res, next) => {
   try {
     let one = await User.findByIdAndUpdate(
       req.params.id,
-      { role: 1 },
+      { role: 2 },
       { new: true }
     );
-    let author = await Author.findOneAndUpdate(
+    let company = await Company.findOneAndUpdate(
       { user_id: req.params.id },
       { active: true },
       { new: true }
     );
-    let company = await Company.findOneAndUpdate(
+    let author = await Author.findOneAndUpdate(
       { user_id: req.params.id },
       { active: false },
       { new: true }

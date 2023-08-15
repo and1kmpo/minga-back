@@ -7,6 +7,7 @@ import read from "../controllers/auth/read.js";
 import update from "../controllers/auth/update.js";
 import destroy from "../controllers/auth/destroy.js";
 import update_role_1 from "../controllers/auth/update_role_1.js";
+import update_role_2 from "../controllers/auth/update_role_2.js";
 
 //middlewares
 import passport from "../middlewares/passport.js";
@@ -17,6 +18,7 @@ import accountExistsSignIn from "../middlewares/accountExistsSignIn.js";
 import isValidPassword from "../middlewares/isValidPassword.js";
 import generateToken from "../middlewares/generateToken.js";
 import has_permission from "../middlewares/has_permition.js";
+import isAdmin from "../middlewares/isAdmin.js";
 
 //schemas
 import register_schema from "../schemas/auth/register.js";
@@ -58,8 +60,17 @@ authRouter.get("/", read);
 authRouter.put(
   "/role/author/:id",
   passport.authenticate("jwt", { session: false }),
+  isAdmin,
   update_role_1
 );
+
+authRouter.put(
+  "/role/company/:id",
+  passport.authenticate("jwt", { session: false }),
+  isAdmin,
+  update_role_2
+);
+
 authRouter.delete("/:id", destroy);
 
 export default authRouter;

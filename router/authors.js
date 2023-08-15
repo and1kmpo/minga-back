@@ -14,6 +14,7 @@ import schema_create from "../schemas/authors/create.js";
 import read_one from "../controllers/authors/read_one.js";
 import read_me from "../controllers/authors/read_me.js";
 import has_permition from "../middlewares/has_permition.js";
+import isAdmin from "../middlewares/isAdmin.js";
 
 let authorsRouter = Router();
 
@@ -36,8 +37,10 @@ authorsRouter.get("/", read);
 authorsRouter.get(
   "/admin",
   passport.authenticate("jwt", { session: false }),
+  isAdmin,
   admin
 );
+
 authorsRouter.get(
   "/:id",
   passport.authenticate("jwt", { session: false }),
