@@ -1,25 +1,26 @@
 import Chapter from "../../models/Chapter.js";
 
-export default async (req, res) => {
+export default async (req, res, next) => {
   try {
-    let data = req.body; // el cliente envía un objeto en la propiedad body del objeto req (requerimientos)
-    let result = await Chapter.findOneAndDelete({ _id: data.id });
-
-    if (result.deletedCount > 0) {
+    // devuelve el objeto eliminado
+    console.log("=> DEL")
+    console.log(req.params)
+    let destroyed = await Chapter.findByIdAndDelete(req.params.id)
+    console.log(destroyed.length)
+    if (destroyed) {
       return res.status(200).json({
+        success: true,
         response: null,
         message: 'Chapter deleted',
       });
     } else {
-      return res.status(400).json({
+      return res.status(404).json({
+        success: false,
         response: null,
         message: 'Chapter not found',
       });
     }
   } catch (error) {
-    return res.status(500).json({
-      response: null,
-      message: 'Error deleting Chapter',
-    });
+    next(error)
   }
 };
