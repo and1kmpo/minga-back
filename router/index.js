@@ -5,6 +5,7 @@ import mangasRouter from "./mangas.js"
 import chaptersRouter from "./chapters.js"
 import categoriesRouter from "./category.js"
 import companiesRouter from "./companies.js"
+import commentsRouter from "./comments.js"
 
 
 let indexRouter = Router();
@@ -15,6 +16,7 @@ indexRouter.use("/mangas", mangasRouter);
 indexRouter.use("/chapters", chaptersRouter);
 indexRouter.use("/categories", categoriesRouter);
 indexRouter.use("/companies", companiesRouter);
+indexRouter.use("/comments", commentsRouter);
 
 
 
