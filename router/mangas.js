@@ -13,7 +13,14 @@ import schema from "../schemas/mangas/create.js";
 // M09
 import read_news from "../controllers/mangas/read_news.js";
 import has_permition from "../middlewares/has_permition.js";
+
+// M10
+import read_me from "../controllers/mangas/read_me.js";
+
 let mangasRouter = Router();
+
+// M10
+mangasRouter.get('/me', passport.authenticate("jwt", {session:false}), has_permition, read_me)
 
 mangasRouter.get(
   "/news",
@@ -36,5 +43,6 @@ mangasRouter.get("/", passport.authenticate("jwt", { session: false }), read);
 mangasRouter.get("/:id", passport.authenticate("jwt", { session: false }), read_one);
 mangasRouter.put("/:id", update);
 // mangasRouter.delete("/:id", destroy);
+
 
 export default mangasRouter;
