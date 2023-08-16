@@ -9,12 +9,12 @@ import companiesRouter from "./companies.js"
 
 let indexRouter = Router();
 
-indexRouter.use("/authors", authorsRouter);
 indexRouter.use("/auth", authRouter);
-indexRouter.use("/mangas", mangasRouter);
-indexRouter.use("/chapters", chaptersRouter);
 indexRouter.use("/categories", categoriesRouter);
 indexRouter.use("/companies", companiesRouter);
+indexRouter.use("/authors", authorsRouter);
+indexRouter.use("/mangas", mangasRouter);
+indexRouter.use("/chapters", chaptersRouter);
 
 
 

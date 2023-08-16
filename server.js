@@ -25,4 +25,4 @@ server.use(not_found_handler);
 server.use(error_handler);
 server.listen(PORT, ready); //Iniciar server
 
-console.log(process.env.NODE_ENV);
+// console.log(process.env.NODE_ENV);
