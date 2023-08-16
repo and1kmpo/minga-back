@@ -1,26 +1,30 @@
 import Chapter from "../../models/Chapter.js";
 
-export default async (req, res) => {
+export default async (req, res, next) => {
   try {
-    let data = req.body; // el cliente envía un objeto en la propiedad body del objeto req (requerimientos)
-    let result = await Chapter.findOneAndUpdate({ _id: data.id }, data);
+    // el cliente envía un objeto en la propiedad body del objeto req
+    // este objeto solo tiene la propiedad a modificar
 
-    if (result.nModified > 0) {
-      let updatedChapter = await Chapter.findById(data.id);
+    let one = await Chapter.findByIdAndUpdate(
+      { _id: req.params.id },
+      req.body,
+      { select: "_id title cover_photo order pages", new: true }
+    )
+
+    if (one) {
       return res.status(200).json({
-        response: updatedChapter,
+        success: true,
+        response: one,
         message: 'Chapter updated',
       });
     } else {
-      return res.status(400).json({
+      return res.status(404).json({
+        success: false,
         response: null,
         message: 'Chapter not found',
       });
     }
   } catch (error) {
-    return res.status(500).json({
-      response: null,
-      message: 'Chapter error',
-    });
+    next(error)
   }
 };
