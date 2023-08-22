@@ -2,8 +2,10 @@ import Chapter from "../../models/Chapter.js";
 
 export default async (req, res, next) => {
   try {
-    // el cliente envía un objeto en la propiedad body del objeto req
-    // este objeto solo tiene la propiedad a modificar
+    // req.user es el usuario autenticado (se trae desde passport)
+    // req.body trae los datos capturados del formulario/postman (sin datos del usuario logueado)
+    // console.log("(update)")
+    // console.log(req.query)
 
     let one = await Chapter.findByIdAndUpdate(
       { _id: req.params.id },
