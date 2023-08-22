@@ -3,9 +3,12 @@ import Chapter from "../../models/Chapter.js"
 
 export default async function get_me(req, res, next) {
     try {
+        // req.user es el usuario autenticado (se trae desde passport)
+        // req.body.author_id || req.author es el author logueado (se trae desde has_permition)
+        // req.query trae solo manga_id, es la propiedad enviada por el click
         let all = await Chapter.find(
             { manga_id: req.query.manga_id },
-            "_id title pages"
+            "_id title cover_photo pages"
         )
 
         if (all.length > 0) {
