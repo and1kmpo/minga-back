@@ -3,10 +3,10 @@ import Chapter from "../../models/Chapter.js";
 export default async (req, res, next) => {
   try {
     // devuelve el objeto eliminado
-    console.log("=> DEL")
-    console.log(req.params)
+    // req.user es el usuario autenticado (se trae desde passport)
+    // req.params trae el id del capitulo a buscar y eliminar
     let destroyed = await Chapter.findByIdAndDelete(req.params.id)
-    console.log(destroyed.length)
+
     if (destroyed) {
       return res.status(200).json({
         success: true,
