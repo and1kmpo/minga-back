@@ -10,7 +10,7 @@ export default async (req, res, next) => {
     let one = await Chapter.findByIdAndUpdate(
       { _id: req.params.id },
       req.body,
-      { select: "_id title cover_photo order pages", new: true }
+      { select: "_id manga_id title cover_photo order pages", new: true }
     )
 
     if (one) {
