@@ -45,9 +45,16 @@ chaptersRouter.get('/:id',
     read_one);
 chaptersRouter.put('/:id',
     passport.authenticate('jwt', { session: false }),
+    has_permition,
+    //finds_id,
+    isActive,
+    //is_property_of,
     update);
 chaptersRouter.delete('/:id',
     passport.authenticate('jwt', { session: false }),
+    //finds_id,
+    isActive,
+    //is_property_of,
     destroy);
 
 export default chaptersRouter;
