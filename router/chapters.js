@@ -40,7 +40,7 @@ chaptersRouter.get('/me',
     has_permition,
     finds_id,
     get_me);
-chaptersRouter.get('/:chapter_id',
+chaptersRouter.get('/:id',
     passport.authenticate('jwt', { session: false }),
     read_one);
 chaptersRouter.put('/:id',

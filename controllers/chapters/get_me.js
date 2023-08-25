@@ -5,7 +5,7 @@ export default async function get_me(req, res, next) {
     try {
         let all = await Chapter.find(
             { manga_id: req.query.manga_id },
-            "_id title pages"
+            "_id title order cover_photo pages"
         )
 
         if (all.length > 0) {
