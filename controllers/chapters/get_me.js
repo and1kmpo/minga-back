@@ -8,7 +8,7 @@ export default async function get_me(req, res, next) {
         // req.query trae solo manga_id, es la propiedad enviada por el click
         let all = await Chapter.find(
             { manga_id: req.query.manga_id },
-            "_id manga_id title cover_photo pages"
+            "_id manga_id title cover_photo order cover_photo pages"
         ).populate("manga_id", "title")
 
         if (all.length > 0) {
