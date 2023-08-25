@@ -1,25 +1,26 @@
 import Manga from "../../models/Manga.js";
+import Chapter from "../../models/Chapter.js";
 
-export default async (req, res) => {
+export default async (req, res, next) => {
   try {
-    let data = req.body; // el cliente envía un objeto en la propiedad body del objeto req (requerimientos)
-    let result = await Manga.findOneAndDelete({ _id: data.id });
+    
+    let id = req.params.id;
+    let one = await Manga.findByIdAndDelete(id);
+    let chapter = await Chapter.deleteMany({ manga_id: id });
 
-    if (result.deletedCount > 0) {
+    if (one) {
       return res.status(200).json({
+        success: true,
         response: null,
-        message: 'Manga deleted',
+        message: "Manga & Chapters deleted successfully",
       });
     } else {
       return res.status(400).json({
         response: null,
-        message: 'Manga not found',
+        message: "Manga not found",
       });
     }
   } catch (error) {
-    return res.status(500).json({
-      response: null,
-      message: 'Error deleting Manga',
-    });
+    next(error);
   }
 };

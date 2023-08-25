@@ -13,7 +13,6 @@ export default async (req, res, next) => {
     if (company) {
       req.body.company_id = company._id;
       req.company = company;
-
       return next();
     }
   }
