@@ -13,7 +13,24 @@ import schema from "../schemas/mangas/create.js";
 // M09
 import read_news from "../controllers/mangas/read_news.js";
 import has_permition from "../middlewares/has_permition.js";
+
+// M10
+import read_me from "../controllers/mangas/read_me.js";
+import destroy from "../controllers/mangas/destroy.js";
+import is_property_of from "../middlewares/is_property_of.js";
+
 let mangasRouter = Router();
+
+mangasRouter.post(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  validator(schema),
+  has_permition,
+  isActive,
+  create
+);
+
+mangasRouter.get("/", passport.authenticate("jwt", { session: false }), read);
 
 mangasRouter.get(
   "/news",
@@ -21,20 +38,38 @@ mangasRouter.get(
   has_permition,
   read_news
 );
-mangasRouter.post(
-  "/",
+
+// M10
+mangasRouter.get(
+  "/me",
   passport.authenticate("jwt", { session: false }),
   has_permition,
-  read_news
+  read_me
 );
-mangasRouter.post("/",passport.authenticate("jwt", { session: false }),validator(schema),
+
+mangasRouter.get(
+  "/:id",
+  passport.authenticate("jwt", { session: false }),
+  read_one
+);
+
+
+mangasRouter.put(
+  "/:id",
+  passport.authenticate("jwt", { session: false }),
   has_permition,
   isActive,
-  create
+  is_property_of,
+  update
 );
-mangasRouter.get("/", passport.authenticate("jwt", { session: false }), read);
-mangasRouter.get("/:id", passport.authenticate("jwt", { session: false }), read_one);
-mangasRouter.put("/:id", update);
-// mangasRouter.delete("/:id", destroy);
+
+mangasRouter.delete(
+  "/:id",
+  passport.authenticate("jwt", { session: false }),
+  has_permition,
+  isActive,
+  is_property_of,
+  destroy
+);
 
 export default mangasRouter;
