@@ -2,7 +2,6 @@ import Author from "../models/Author.js";
 import Company from "../models/Company.js";
 
 export default async (req, res, next) => {
-  console.log(req.user);
   if (req.user.role === 1 || req.user.role === 2) {
     let author = await Author.findOne({ user_id: req.user._id });
     if (author) {
@@ -14,7 +13,6 @@ export default async (req, res, next) => {
     if (company) {
       req.body.company_id = company._id;
       req.company = company;
-
       return next();
     }
   }
