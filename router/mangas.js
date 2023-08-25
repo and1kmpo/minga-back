@@ -32,6 +32,13 @@ mangasRouter.post(
 
 mangasRouter.get("/", passport.authenticate("jwt", { session: false }), read);
 
+mangasRouter.get(
+  "/news",
+  passport.authenticate("jwt", { session: false }),
+  has_permition,
+  read_news
+);
+
 // M10
 mangasRouter.get(
   "/me",
@@ -46,12 +53,6 @@ mangasRouter.get(
   read_one
 );
 
-mangasRouter.get(
-  "/news",
-  passport.authenticate("jwt", { session: false }),
-  has_permition,
-  read_news
-);
 
 mangasRouter.put(
   "/:id",
