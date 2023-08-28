@@ -2,7 +2,7 @@ import Chapter from "../../models/Chapter.js";
 
 export default async (req, res, next) => {
     try {
-        let chapter_id = req.params.chapter_id
+        let chapter_id = req.params.id
         console.log(req.params.id)
         let one = await Chapter.findById(chapter_id, "-createdAt -updatedAt")
         let next = await Chapter.findOne(
